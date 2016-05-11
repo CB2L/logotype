@@ -11,3 +11,5 @@ It's is usually a distinct text-only typographic treatment of the name of a comp
 
 ## Our LogoType:
 It's composed of the name of the organisation, <b>C</b>omputational <b>B</b>iology and <b>B</b>ioinformatics <b>L</b>aboratory, abbreviated as <b>CBBL</b>; uniquely set and arranged typeface with the help of a computer program using [Sass](http://sass-lang.com/), and [Ruby](https://www.ruby-lang.org/en/).
+
+We developed it for the purpose of our institution, or brand identity with some elegant mathematics, and build by using [Node.js](https://nodejs.org/en/)®, and [Grunt](http://gruntjs.com/).
