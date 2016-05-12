@@ -12,3 +12,18 @@
 // Sass - (3.4.21)     : Selective Steve  //
 // Compass - (v1.0.3)  : Polaris          //
 // -------------------------------------- //
+
+// Path: logotype/source/core/scss/mixins/
+
+// ==========================================
+// B. Visually hide an element.
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
