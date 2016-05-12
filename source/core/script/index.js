@@ -34,3 +34,6 @@
  *                        limitations under the License.
  * ___________________________________________________________________________
  */
+
+// Invoking strict mode.
+"use strict";
