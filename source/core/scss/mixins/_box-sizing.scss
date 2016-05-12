@@ -1,1 +1,10 @@
 // LogoType®: Box Sizing
+// Path: logotype/source/core/scss/mixins/
+// The box-sizing property is used to alter the default CSS box model used to calculate widths and heights of elements.
+// Values: content-box || border-box || inherit || initial || unset
+// Using @import : box-sizing.
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
