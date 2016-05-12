@@ -37,3 +37,6 @@
 
 // Invoking strict mode.
 "use strict";
+// Define and invoke a function to determine, if we're in strict mode or not.
+// @return: True or False.
+var strict = (function(){ return !this; }());
