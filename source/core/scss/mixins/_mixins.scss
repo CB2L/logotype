@@ -61,3 +61,15 @@
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);
 }
+
+// ==========================================
+// F. The @function directive to clamp a number.
+// Clamping a number means restricting it between min and max values.
+// Usage:
+// 1. If the value is greater than the maximum value, it returns $max
+// 2. If the value is lesser than or equals to the maximum value and
+//  - if the value is lesser than the minimum value, it returns $min
+//  - if the value is greater than or equals to the minimum value, it returns $value
+@function clamp($value, $min, $max) {
+  @return if($value > $max, $max, if($value < $min, $min, $value));
+}
