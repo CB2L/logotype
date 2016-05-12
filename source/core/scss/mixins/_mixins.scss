@@ -55,3 +55,9 @@
   #{$attribute}: $solid-color;
   #{$attribute}: $color;
 }
+
+// ==========================================
+// E. The @function directive to strip unit.
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
