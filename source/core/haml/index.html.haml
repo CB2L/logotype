@@ -8,3 +8,14 @@
     %title LogoType®: Computational Biology and Bioinformatics Laboratory.
     %link{:href => "style/*.css", :rel => "stylesheet", :type => "text/css"}
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js", :type => "text/javascript"}
+  
+  %body
+    %div.container
+      %h1
+        %div.ribbon
+          %figure.letter-wrapper
+            %span.letter.c
+              - (1..3).each do |i|
+                %span.class #{i}
+            %figcaption
+/ Created by Prabhat Kumar.
