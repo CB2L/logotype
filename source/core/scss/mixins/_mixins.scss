@@ -73,3 +73,20 @@
 @function clamp($value, $min, $max) {
   @return if($value > $max, $max, if($value < $min, $min, $value));
 }
+
+// ==========================================
+// G. The @function directive for px to em string interpolation.
+// @using Sass unitless() method.
+$browser-context: 16;
+
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  
+  @return $pixels / $context * 1em;
+}
