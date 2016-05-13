@@ -101,3 +101,14 @@ $browser-context: 16;
     @content;
   }
 }
+
+// ==========================================
+// I. The @mixin directive for ::selection.
+// The ::selection CSS pseudo-element applies rules to the portion of a document,
+// that has been highlighted (e.g. selected with the mouse or another pointing device) by the user.
+/// Note: Only a small subset of CSS properties can be used in a rule using ::selection in it's
+/// selector: color, background-color, cursor, outline, text-decoration, text-emphasis-color and text-shadow.
+@mixin axix-selection ($background, $color) {
+  background: $background;
+  color: $color;
+}
