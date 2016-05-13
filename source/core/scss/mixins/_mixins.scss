@@ -112,3 +112,11 @@ $browser-context: 16;
   background: $background;
   color: $color;
 }
+
+// ============================================
+// J. The @mixin directive for Size -->
+//                             (width & height)
+@mixin axix-size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
