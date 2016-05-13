@@ -90,3 +90,14 @@ $browser-context: 16;
   
   @return $pixels / $context * 1em;
 }
+
+// ==========================================
+// H. The @mixin directive for IE-7.
+// @Using: @content directive.
+@mixin apply-to-ie7 {
+  // IE7 hack from -->
+  // http://www.paulirish.com/2009/browser-specific-css-hacks/
+  *:first-child+html & {
+    @content;
+  }
+}
