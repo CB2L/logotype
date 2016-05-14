@@ -351,3 +351,31 @@ $browser-context: 16;
     @content;
   }
 }
+
+// ============================================
+// O. A smart cache @mixin directive.
+//    @author : Prabhat Kumar
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Global cache map.
+$cache: ();
+
+// Cache mixin.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@mixin cache($declarations) {
+  // Looping through all properties/values from map.
+  @each $property, $value in $declarations {
+    // Get the stored values for the current property.
+    $stored-values: map-get($cache, $property);
+    // If the value doesn't exist in stored values.
+    @if not index($stored-values, $value) {
+      // Add it.
+      $cache: map-merge($cache, ($property: append($stored-values or (), $value))) !global;
+      // And create a placeholder at root level.
+      @at-root %#{$property}-#{length(map-get($cache, $property))} {
+        #{$property}: $value;
+      }
+    }
+    // Extend the placeholder.
+    @extend %#{$property}-#{index(map-get($cache, $property), $value)};
+  }
+}
