@@ -621,3 +621,92 @@ $cache: ();
        -o-transition-timing-function: $timing-function;
           transition-timing-function: $timing-function;
 }
+
+// ============================================
+// S. A smart Bubble Sort @mixin directive.
+//    @author : Prabhat Kumar
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/// Default order used to determine, which string comes first.
+/// @type List
+$default-order:
+  "!" "#" "$" "%" "&" "'" "(" ")" "*" "+" "," "-" "." "/" "[" "\\" "]" "^" "_" "{" "|" "}" "~"
+  "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
+  "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" !default;
+
+// Compares two string to determine which comes first.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/// @access private
+/// @param {String} $a - first string
+/// @parem {String} $b - second string
+/// @param {List} $order - order to deal with
+/// @return {Bool}
+@function stringCompare($a, $b, $order) {
+  @if type-of($a) == "number" and type-of($b) == "number" {
+    @return $a < $b;
+  }
+  
+  $a: to-lower-case($a + unquote(""));
+  $b: to-lower-case($b + unquote(""));
+  
+  @for $i from 1 through min(str-length($a), str-length($b)) {
+    $char-a: str-slice($a, $i, $i);
+    $char-b: str-slice($b, $i, $i);
+    
+    @if $char-a and $char-b and index($order, $char-a) != index($order, $char-b) {
+      @return index($order, $char-a) < index($order, $char-b);
+    }
+  }
+  
+  @return str-length($a) < str-length($b);
+}
+
+// Swaps values at indexes `$a` and `$b` from `$list`.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/// @access private
+/// @param {List} $list - list to update
+/// @param {Number} $a - index of first element
+/// @param {Number} $b - index of second element
+/// @return {List}
+@function swap($list, $a, $b) {
+  @if abs($a) > length($list) or abs($b) > length($list) {
+    @return $list;
+  }
+  
+  $tmp: nth($list, $a);
+  $list: set-nth($list, $a, nth($list, $b));
+  $list: set-nth($list, $b, $tmp);
+  
+  @return $list;
+}
+
+// Bubble Sort
+// ~~~~~~~~~~~
+/// @access private
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to use for sorting
+/// @return {List}
+/// @require {function} stringCompare
+/// @require {function} swap
+@function axix-bubble-sort($list, $order: $default-order) {
+  @for $i from 1 through length($list) {
+    @for $j from $i through 1 {
+      @if $j > 1 and stringCompare(nth($list, $j), nth($list, $j - 1), $order) {
+        $list: swap($list, $j, $j - 1);
+      }
+    }
+  }
+  @return $list;
+}
+
+// Sort function delaying to an algorithm-specific function depending on `$algorithm`.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/// @access public
+/// @param {List} $list - list to sort
+/// @param {List} $order ($default-order) - order to deal with
+/// @param {String} $algorithm ("quick")  - algorithm to use
+/// @return {List} - Sorted list
+/// ------------------------------------
+/// @require {function} axix-bubble-sort
+@function sort($list, $order: $default-order, $algorithm: "quick") {
+  @return call("#{$algorithm}-sort", $list, $order);
+}
