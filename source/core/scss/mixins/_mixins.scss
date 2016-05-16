@@ -720,3 +720,14 @@ $AnimateHook: "animated";
 // Sets the hook's animation duration
 // Defaults to 1s.
 $AnimateDuration: 1s;
+
+// Setting styles for the animation hook class
+// -------------------------------------------
+.#{$AnimateHook} {
+  animation-duration: $AnimateDuration;
+  animation-fill-mode: both;
+  // Modifier for infinite repetition.
+  &--infinite {
+    @include animation-iteration-count(infinite);
+  }
+}
