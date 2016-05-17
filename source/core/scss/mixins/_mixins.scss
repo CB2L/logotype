@@ -742,3 +742,40 @@ $AnimateDuration: 1s;
   }
   animation: $name $duration $delay $iterate;
 }
+
+// ============================================
+// U. AXIX-Animation @mixin directive.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@mixin axix-animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+     -moz-animation: $animations;
+      -ms-animation: $animations;
+       -o-animation: $animations;
+          animation: $animations;
+}
+
+@mixin axix-keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-ms-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
