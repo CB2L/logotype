@@ -1,1 +1,10 @@
 // LogoType®: Text overflow
+// Path: logotype/source/core/scss/overflow
+
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // Collapses whitespace as for normal, but suppresses line breaks (text wrapping) within text.
+  white-space: nowrap;
+}
