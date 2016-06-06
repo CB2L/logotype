@@ -17,3 +17,6 @@ $axix-base-font-size-h6:                  floor(($axix-base-font-size * 0.79)) !
 // 1.2 line-height
 $axix-base-line-height:                                            1.428571429 !default; // [20/14]
 $axix-line-height-computed: floor(($axix-base-font-size * $axix-base-line-height)) !default; // ~20px
+// 1.3 Heading: <h1> to <h6>
+$axix-headings-font-weight:                                                600 !default;
+$axix-headings-color:                                                  inherit !default;
