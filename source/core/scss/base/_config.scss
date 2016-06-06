@@ -14,3 +14,6 @@ $axix-base-font-size-h3:                   ceil(($axix-base-font-size * 1.22)) !
 $axix-base-font-size-h4:                  floor(($axix-base-font-size * 1.18)) !default; // ~16px
 $axix-base-font-size-h5:                  floor(($axix-base-font-size * 1.00)) !default; // ~14px
 $axix-base-font-size-h6:                  floor(($axix-base-font-size * 0.79)) !default; // ~11px
+// 1.2 line-height
+$axix-base-line-height:                                            1.428571429 !default; // [20/14]
+$axix-line-height-computed: floor(($axix-base-font-size * $axix-base-line-height)) !default; // ~20px
