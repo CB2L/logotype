@@ -21,5 +21,11 @@ $axix-line-height-computed: floor(($axix-base-font-size * $axix-base-line-height
 $axix-headings-font-weight:                                                600 !default;
 $axix-headings-color:                                                  inherit !default;
 
-// 4. Z-index ==//==
+// 2. Z-index ==//==
 $axix-base-zindex-navbar:                                                 1001 !default;
+
+// 3. Components ==//==
+$axix-base-padding-base-vertical:                                          4px !default;
+$axix-base-padding-base-horizontal:                                        4px !default;
+$axix-base-margin-base-vertical:                                          10px !default;
+$axix-base-margin-base-horizontal:                                        10px !default;
