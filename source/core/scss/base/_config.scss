@@ -20,3 +20,6 @@ $axix-line-height-computed: floor(($axix-base-font-size * $axix-base-line-height
 // 1.3 Heading: <h1> to <h6>
 $axix-headings-font-weight:                                                600 !default;
 $axix-headings-color:                                                  inherit !default;
+
+// 4. Z-index ==//==
+$axix-base-zindex-navbar:                                                 1001 !default;
