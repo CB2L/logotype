@@ -29,3 +29,11 @@ $axix-base-padding-base-vertical:                                          4px !
 $axix-base-padding-base-horizontal:                                        4px !default;
 $axix-base-margin-base-vertical:                                          10px !default;
 $axix-base-margin-base-horizontal:                                        10px !default;
+
+// 4. Colors ==//==
+$axix-brand-bg-color:                                                  #F9F8F4 !default;
+$axix-brand-color:                                                     #808064 !default;
+$axix-brand-bg-color-dark:                               darken(#F9F8F4, 4.9%) !default;
+$axix-brand-color-dark:                                  darken(#808064, 7.9%) !default;
+$axix-brand-bg-color-light:                lighten($axix-brand-bg-color, 4.9%) !default;
+$axix-brand-color-light:                       lighten($axix-brand-color,7.9%) !default;
